@@ -1,22 +1,110 @@
+/* Centrage complet de la page */
 body {
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #c5cae9; 
+    background-color: #e8eaf6; /* Couleur plus douce pour le fond */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative; /* Pour éviter les superpositions non voulues */
+    overflow: hidden;
 }
 
+/* Styles pour le titre et la liste */
 h1, ul {
     text-align: center;
+    margin: 0;
+    z-index: 1; /* Assure que les éléments sont au-dessus du fond */
+    position: relative;
 }
 
+/* Liste stylisée */
 ul {
-    list-style-type: none;
+    list-style-type: none; /* Pas de puces pour la liste */
     padding: 0;
+    margin-top: 20px; /* Un peu d'espace entre le titre et la liste */
+    z-index: 1; /* Priorité sur d'autres éléments */
 }
 
+/* Lien stylisé */
 a {
     text-decoration: none;
-    color: black;
+    color: #2c3e50;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: 2px solid #2c3e50;
+    border-radius: 8px; /* Coins plus arrondis pour un effet doux */
+    transition: all 0.3s ease;
+    display: inline-block; /* S'assure que le lien a une bonne taille de clic */
+    margin-bottom: 10px; /* Espacement entre les éléments */
+}
+
+/* Effet au survol des liens */
+a:hover {
+    background-color: #3949ab; /* Couleur vive au survol */
+    color: #fff;
+    transform: scale(1.08); /* Agrandir légèrement au survol */
+    border-color: #3949ab; /* Harmonisation de la bordure au survol */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Effet d'ombre */
+}
+
+/* Style pour le titre */
+h1 {
+    font-size: 32px; /* Augmenter la taille pour un titre plus impactant */
+    color: #3f51b5; /* Couleur bleu vif */
+    margin-bottom: 20px;
+    letter-spacing: 1.5px; /* Espacement subtil entre les lettres */
+}
+
+/* Ajouter un fond visuel pour plus de style */
+body::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(63, 81, 181, 0.2); /* Cercle bleu transparent */
+    border-radius: 50%; /* Cercle parfait */
+    z-index: 0; /* Derrière tout le contenu */
+    animation: floating 6s ease-in-out infinite; /* Animation douce */
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(63, 81, 181, 0.1); /* Cercle bleu clair */
+    border-radius: 50%;
+    z-index: 0;
+    animation: floating-reverse 6s ease-in-out infinite; /* Animation douce inversée */
+}
+
+/* Animation douce des cercles */
+@keyframes floating {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(20px) translateX(20px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+@keyframes floating-reverse {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(-20px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
 }
